@@ -40,3 +40,4 @@ audio_features_df = audio_features_df.rename(columns={"uri": "spotify_uri"})
 merged_df = pd.merge(df, audio_features_df, on="spotify_uri", how="left")
 
 merged_df.to_pickle("./data/merged_df.pkl")
+

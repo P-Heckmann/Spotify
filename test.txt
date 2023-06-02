@@ -1,0 +1,5 @@
+chart = alt.Chart(df).mark_bar().encode(
+        alt.X(metric, bin=alt.Bin(step=0.1)),
+        alt.Y('count()', title='Frequency')
+    ).interactive()
+    st.altair_chart(chart, use_container_width=True)

@@ -44,12 +44,35 @@ counts = df.groupby(['key', 'year']).size().reset_index(name='Count')
 # Pivot the counts DataFrame to have names as columns and years as index
 pivoted = counts.pivot(index='year', columns='key', values='Count')
 
+pivoted = pivoted.reset_index(drop=False)
+#df = pivoted.reset_index()
 
 
-#chart = alt.Chart(pivoted).mark_bar().encode(
-#    alt.X('year:O', bin=alt.Bin(step=1), title='Year'),
-#    alt.Y('count()', title='Frequency')
-#).interactive()
+
+
+# Melt the data to long format
+melted_data = pd.melt(pivoted, id_vars='year', var_name='Key', value_name='Frequency')
+melted_data.dropna()
+
+# Create the stacked bar plot using Altair
+chart = alt.Chart(melted_data).mark_bar().encode(
+    x='year:O',
+    y='Frequency:Q',
+    color='Key:N'
+).properties(
+    width=500,
+    height=300
+)
+#chart
+st.altair_chart(chart, use_container_width=True)
+
+
+
+chart = alt.Chart(df).mark_bar().encode(
+    alt.X('year:O', bin=alt.Bin(step=1), title='Year'),
+    alt.Y('count()', title='Frequency')
+).interactive()
+chart
 
 #st.altair_chart(chart, use_container_width=True)
 

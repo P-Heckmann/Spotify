@@ -53,7 +53,7 @@ labels = ['0-80 BPM', '80-90 BPM',
 df['Tempo'] = pd.cut(df['tempo'], bins=tempo_bins, labels=labels)
 
 
-metrics = ["key", "tempo" ] #, "danceability","speechiness","instrumentalness", "liveness","valence"]
+metrics = ["key", "Tempo" ] #, "danceability","speechiness","instrumentalness", "liveness","valence"]
 
 selected_metric = st.selectbox('Select a metric:', metrics)
 

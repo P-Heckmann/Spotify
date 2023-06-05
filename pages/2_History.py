@@ -126,7 +126,7 @@ melted_data["Normalized_count"] = melted_data.groupby("year")["Count"].apply(
 chart = (
     alt.Chart(melted_data)
     .mark_bar()
-    .encode(x="year:O", y="Normalized_count:Q", color=selected_metric)
+    .encode(y="Normalized_count:Q", color=selected_metric)
     .interactive()
 )
 

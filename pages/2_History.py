@@ -112,15 +112,6 @@ if selected_metric == "Tempo":
             "Tempo:N", sort=custom_sort_order, legend=alt.Legend(title="Tempo")
         ),
     )
-elif selected_metric == "Danceability":
-    custom_sort_order = other_labels
-    chart = chart.encode(
-        color=alt.Color(
-            "Danceability:N",
-            sort=custom_sort_order,
-            legend=alt.Legend(title="Danceability"),
-        ),
-    )
 
 
 st.altair_chart(chart, use_container_width=True)

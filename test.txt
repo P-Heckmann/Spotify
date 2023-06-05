@@ -1,9 +1,9 @@
-# Group the data by year and calculate the sum of the 'value' column for each group
-grouped_by_year = df[df['date'].dt.year == 2011]
-
-# Count how often each year appears in the 'date' column
-count_by_year = df['date'].dt.year.value_counts()#.reset_index()
-
-#number = count_by_year.loc[count_by_year['index']== 2022]
-
-count_by_year.plot.bar(figsize=(15,5))
+elif selected_metric == "Danceability":
+    custom_sort_order = other_labels
+    chart = chart.encode(
+        color=alt.Color(
+            "Danceability:N",
+            sort=custom_sort_order,
+            legend=alt.Legend(title="Danceability"),
+        ),
+    )

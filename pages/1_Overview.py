@@ -74,6 +74,7 @@ df['time_signature'] = df['time_signature'].astype(int)
 
 st.markdown("""---""")
 st.write(f"#### Key")
+st.write(f"###### {KEY}")
 
 chart = alt.Chart(df).mark_bar().encode(
     alt.X('key:O', title='Key'),
@@ -85,6 +86,7 @@ st.altair_chart(chart, use_container_width=True)
 
 st.markdown("""---""")
 st.write(f"#### Tempo")
+st.write(f"###### {TEMPO}")
 
 x_range = (50,220)
 chart = alt.Chart(df).mark_bar().encode(
@@ -103,7 +105,7 @@ metrics = ["danceability","speechiness","instrumentalness",
 metrics_name = ["Danceability","Speechiness","Instrumentalness",
            "Liveness","Valence"]
 
-info_list = [KEY, TEMPO, DANCEABLITY,SPEECHINESS, INSTRUMENTALNESS, LIVENESS, VALENCE]
+info_list = [DANCEABLITY,SPEECHINESS, INSTRUMENTALNESS, LIVENESS, VALENCE]
 
 
 for metric, name, info in zip(metrics,metrics_name,info_list):

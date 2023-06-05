@@ -13,15 +13,17 @@ df = pd.read_pickle(path_local)
 
 
 
-#NUMBER_OF_ENTRIES = len(df)
-
-#df.describe()
 
 st.write("### Welcome to the Billboard analyser")
 st.markdown("""---""")
 
 NUMBER_OF_ENTRIES = len(df)
+FIRST_YEAR = df["year"].min()
+LAST_YEAR = 2021
 
+st.write(f"#### Number of songs: {NUMBER_OF_ENTRIES}")
+st.write(f"#### From {FIRST_YEAR} to {LAST_YEAR}")
+st.markdown("""---""") 
 
 chart = alt.Chart(df).mark_bar().encode(
     alt.X('year:O', bin=alt.Bin(step=1), title='Year'),

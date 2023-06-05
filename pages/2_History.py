@@ -35,7 +35,7 @@ mapping = {0: 'C',
            }
 
 # Replace numerical data in column 'A' with string data using the mapping dictionary
-df['key'] = df['key'].replace(mapping)
+df['Key'] = df['key'].replace(mapping)
 
 
 
@@ -44,16 +44,24 @@ df['key'] = df['key'].replace(mapping)
 tempo_bins = [0,80,90,100,110,120,130,140,160,300]
 
 # Define the bin labels
-labels = ['0-80 BPM', '80-90 BPM',
+tempo_labels = ['0-80 BPM', '80-90 BPM',
           '90-100 BPM', '100-110 BPM', 
           '110-120 BPM ', '120-130 BPM',
           '130-140 BPM', '140-160 BPM', '160-250 BPM']
 
+other_bins = [0,0.1,0.2,0.3,0.4,0.5,1]
 
-df['Tempo'] = pd.cut(df['tempo'], bins=tempo_bins, labels=labels)
+other_labels = ['0.1', '0.2','0.3','0.4','0.5','1']
 
 
-metrics = ["key", "Tempo" ] #, "danceability","speechiness","instrumentalness", "liveness","valence"]
+df['Tempo'] = pd.cut(df['tempo'], bins=tempo_bins, labels=tempo_labels)
+
+df['Danceability'] = pd.cut(df['danceability'], bins=other_bins, labels=other_labels)
+
+
+
+
+metrics = ["Key", "Tempo" , "Danceability" ] #,"speechiness","instrumentalness", "liveness","valence"]
 
 selected_metric = st.radio('Select a metric:', metrics)
 
@@ -83,12 +91,15 @@ chart = alt.Chart(melted_data).mark_bar().encode(
 # Specify the order of the legend
 
 if selected_metric == "Tempo":
-    custom_sort_order = labels
+    custom_sort_order = tempo_labels
     chart = chart.encode(
         color=alt.Color('Tempo:N', sort=custom_sort_order, legend=alt.Legend(title='Tempo')),
 )
-
-#chart
+elif selected_metric == "Danceability":
+    custom_sort_order = other_labels
+    chart = chart.encode(
+        color=alt.Color('Tempo:N', sort=custom_sort_order, legend=alt.Legend(title='Tempo')),
+)
 
 
 st.altair_chart(chart, use_container_width=True)
@@ -100,12 +111,16 @@ chart = alt.Chart(melted_data).mark_bar().encode(
     color=selected_metric
 ).interactive()
 
-# Specify the order of the legend
-#custom_sort_order = labels
-#chart = chart.encode(
-#    color=alt.Color('Tempo:N', sort=custom_sort_order, legend=alt.Legend(title='Tempo')),
-#)
-
+if selected_metric == "Tempo":
+    custom_sort_order = tempo_labels
+    chart = chart.encode(
+        color=alt.Color('Tempo:N', sort=custom_sort_order, legend=alt.Legend(title='Tempo')),
+)
+elif selected_metric == "Danceability":
+    custom_sort_order = other_labels
+    chart = chart.encode(
+        color=alt.Color('Tempo:N', sort=custom_sort_order, legend=alt.Legend(title='Tempo')),
+)
 
 #chart
 

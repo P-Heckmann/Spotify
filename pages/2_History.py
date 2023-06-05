@@ -72,7 +72,7 @@ metrics = [
     "Key",
     "Tempo",
     "Danceability",
-"speechiness","instrumentalness", "liveness","valence"]
+"Speechiness","Instrumentalness", "Liveness","Valence"]
 
 selected_metric = st.radio("Select a metric:", metrics)
 

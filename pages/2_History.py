@@ -104,11 +104,26 @@ melted_data = melted_data.dropna()
 
 
 
-
-
-if selected_metric == "Danceability":
+if selected_metric == "Key":
+    st.write("#### Key")
+elif selected_metric == "Tempo":
+    st.write("#### Tempo")
+elif selected_metric == "Danceability":
     st.write("#### Danceability")
     st.write(f"###### {DANCEABLITY}")
+elif selected_metric == "Speechiness":
+    st.write("#### Speechiness")
+    st.write(f"###### {SPEECHINESS}")
+elif selected_metric == "Instrumentalness":
+    st.write("#### Instrumentalness")
+    st.write(f"###### {INSTRUMENTALNESS}")
+elif selected_metric == "Liveness":
+    st.write("#### Liveness")
+    st.write(f"###### {LIVENESS}")
+elif selected_metric == "Valence":
+    st.write("#### Valence")
+    st.write(f"###### {VALENCE}")
+    
 
 
 # Create the stacked bar plot using Altair

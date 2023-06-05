@@ -102,7 +102,7 @@ metrics_name = ["Danceability","Speechiness","Instrumentalness",
 info_list = [DANCEABLITY,SPEECHINESS, INSTRUMENTALNESS, LIVENESS, VALENCE]
 
 
-for metric, name, info in zip(metrics,metrics_name,info_list) :
+for metric, name, info in zip(metrics,metrics_name,info_list):
     st.write(f"#### {name}")
     st.write(f"###### {info}")
     

@@ -51,18 +51,36 @@ pivoted = pivoted.reset_index(drop=False)
 
 
 # Melt the data to long format
-melted_data = pd.melt(pivoted, id_vars='year', var_name='Key', value_name='Frequency')
-melted_data.dropna()
+melted_data = pd.melt(pivoted, id_vars='year', var_name='Key', value_name='Count')
+melted_data = melted_data.dropna()
 
 # Create the stacked bar plot using Altair
 chart = alt.Chart(melted_data).mark_bar().encode(
     x='year:O',
-    y='Frequency:Q',
+    y='Count:Q',
     color='Key:N'
 ).interactive()
 #chart
 st.altair_chart(chart, use_container_width=True)
 
+
+melted_data['Normalized_count'] = melted_data.groupby('year')['Count'].apply(lambda x: x / x.sum())
+
+
+
+chart = alt.Chart(melted_data).mark_bar().encode(
+    x='year:O',
+    y='Normalized_count:Q',
+    color='Key:N'
+).interactive()
+
+st.altair_chart(chart, use_container_width=True)
+
+# Normalize column1 from 0 to 1
+#normalized_counts = (melted_data['Count'] - melted_data['Count'].min()) / (melted_data['Count'].max() - melted_data['Count'].min())
+
+# Replace the column1 values with the normalized values
+#melted_data['Normed'] = normalized_counts
 
 
 # group the dataframe by year and normalize the count column

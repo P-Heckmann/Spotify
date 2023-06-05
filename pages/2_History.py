@@ -63,13 +63,16 @@ other_labels = ["0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "
 df["Tempo"] = pd.cut(df["tempo"], bins=tempo_bins, labels=tempo_labels)
 
 df["Danceability"] = pd.cut(df["danceability"], bins=other_bins, labels=other_labels)
-
+df["Speechiness"] = pd.cut(df["speechiness"], bins=other_bins, labels=other_labels)
+df["Instrumentalness"] = pd.cut(df["instrumentalness"], bins=other_bins, labels=other_labels)
+df["Liveness"] = pd.cut(df["liveness"], bins=other_bins, labels=other_labels)
+df["Valence"] = pd.cut(df["valence"], bins=other_bins, labels=other_labels)
 
 metrics = [
     "Key",
     "Tempo",
     "Danceability",
-]  # ,"speechiness","instrumentalness", "liveness","valence"]
+"speechiness","instrumentalness", "liveness","valence"]
 
 selected_metric = st.radio("Select a metric:", metrics)
 

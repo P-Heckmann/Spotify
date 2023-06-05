@@ -9,7 +9,7 @@ path = "./data/merged_df.pkl"
 
 path_local = r"C:\Users\paulh\Desktop\Spotify\data\merged_df.pkl"
 
-df = pd.read_pickle(path_local)
+df = pd.read_pickle(path)
 
 
 

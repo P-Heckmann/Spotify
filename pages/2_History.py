@@ -59,8 +59,7 @@ chart = alt.Chart(melted_data).mark_bar().encode(
     x='year:O',
     y='Frequency:Q',
     color='Key:N'
-).interactice()
-
+).interactive()
 #chart
 st.altair_chart(chart, use_container_width=True)
 

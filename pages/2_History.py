@@ -76,7 +76,7 @@ melted_data = melted_data.dropna()
 chart = alt.Chart(melted_data).mark_bar().encode(
     x='year:O',
     y='Count:Q',
-    color='selected_metric:N'
+    color=selected_metric
 ).interactive()
 
 # Specify the order of the legend
@@ -94,7 +94,7 @@ melted_data['Normalized_count'] = melted_data.groupby('year')['Count'].apply(lam
 chart = alt.Chart(melted_data).mark_bar().encode(
     x='year:O',
     y='Normalized_count:Q',
-    color='Tempo:N'
+    color=selected_metric
 ).interactive()
 
 # Specify the order of the legend

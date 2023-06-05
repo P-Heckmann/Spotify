@@ -76,7 +76,7 @@ melted_data = melted_data.dropna()
 chart = alt.Chart(melted_data).mark_bar().encode(
     x='year:O',
     y='Count:Q',
-    color=selected_metric, default="key"
+    color=selected_metric
 ).interactive()
 
 # Specify the order of the legend

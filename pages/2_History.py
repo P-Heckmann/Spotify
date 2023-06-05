@@ -49,9 +49,9 @@ tempo_labels = ['0-80 BPM', '80-90 BPM',
           '110-120 BPM ', '120-130 BPM',
           '130-140 BPM', '140-160 BPM', '160-250 BPM']
 
-other_bins = [0,0.1,0.2,0.3,0.4,0.5,1]
+other_bins = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
 
-other_labels = ['0.1', '0.2','0.3','0.4','0.5','1']
+other_labels = ['0.1', '0.2','0.3','0.4','0.5','0.6','0.6','0.7','0.8','0.9','1']
 
 
 df['Tempo'] = pd.cut(df['tempo'], bins=tempo_bins, labels=tempo_labels)

@@ -58,7 +58,7 @@ df['Tempo'] = pd.cut(df['tempo'], bins=tempo_bins, labels=tempo_labels)
 
 df['Danceability'] = pd.cut(df['danceability'], bins=other_bins, labels=other_labels)
 
-
+df
 
 
 metrics = ["Key", "Tempo" , "Danceability" ] #,"speechiness","instrumentalness", "liveness","valence"]
@@ -98,7 +98,7 @@ if selected_metric == "Tempo":
 elif selected_metric == "Danceability":
     custom_sort_order = other_labels
     chart = chart.encode(
-        color=alt.Color('Tempo:N', sort=custom_sort_order, legend=alt.Legend(title='Tempo')),
+        color=alt.Color('Danceability:N', sort=custom_sort_order, legend=alt.Legend(title='Danceability')),
 )
 
 
@@ -119,7 +119,7 @@ if selected_metric == "Tempo":
 elif selected_metric == "Danceability":
     custom_sort_order = other_labels
     chart = chart.encode(
-        color=alt.Color('Tempo:N', sort=custom_sort_order, legend=alt.Legend(title='Tempo')),
+        color=alt.Color('Danceability:N', sort=custom_sort_order, legend=alt.Legend(title='Danceability')),
 )
 
 #chart

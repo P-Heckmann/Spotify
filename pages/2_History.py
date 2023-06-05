@@ -94,7 +94,9 @@ melted_data = melted_data.dropna()
 chart = (
     alt.Chart(melted_data)
     .mark_bar()
-    .encode(x="year:O", y="Count:Q", color=selected_metric)
+    .encode(x=alt.X("year:O"),
+            y=alt.X("Count:Q"),
+            color=selected_metric)
     .interactive()
 )
 

@@ -81,7 +81,7 @@ chart = alt.Chart(melted_data).mark_bar().encode(
 
 # Specify the order of the legend
 
-if selected_metric == "tempo":
+if selected_metric == "Tempo":
     custom_sort_order = labels
     chart = chart.encode(
         color=alt.Color('Tempo:N', sort=custom_sort_order, legend=alt.Legend(title='Tempo')),

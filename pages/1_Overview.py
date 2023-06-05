@@ -21,6 +21,10 @@ NUMBER_OF_ENTRIES = len(df)
 FIRST_YEAR = df["year"].min()
 LAST_YEAR = 2021
 
+KEY = '"The key the track is in. Integers map to pitches using standard Pitch Class notation. E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on. If no key was detected, the value is -1 (Spotify API)."'
+
+TEMPO = '"The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration (Spotify API)."'
+
 DANCEABLITY = '"Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable (Spotify API). "'
 
 SPEECHINESS = '"Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 0.33 most likely represent music and other non-speech-like tracks (Spotify API)."'
@@ -99,7 +103,7 @@ metrics = ["danceability","speechiness","instrumentalness",
 metrics_name = ["Danceability","Speechiness","Instrumentalness",
            "Liveness","Valence"]
 
-info_list = [DANCEABLITY,SPEECHINESS, INSTRUMENTALNESS, LIVENESS, VALENCE]
+info_list = [KEY, TEMPO, DANCEABLITY,SPEECHINESS, INSTRUMENTALNESS, LIVENESS, VALENCE]
 
 
 for metric, name, info in zip(metrics,metrics_name,info_list):

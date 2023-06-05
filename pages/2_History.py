@@ -59,34 +59,11 @@ chart = alt.Chart(melted_data).mark_bar().encode(
     x='year:O',
     y='Frequency:Q',
     color='Key:N'
-).properties(
-    width=500,
-    height=300
-)
+).interactice()
+
 #chart
 st.altair_chart(chart, use_container_width=True)
 
-
-
-chart = alt.Chart(df).mark_bar().encode(
-    alt.X('year:O', bin=alt.Bin(step=1), title='Year'),
-    alt.Y('count()', title='Frequency')
-).interactive()
-chart
-
-#st.altair_chart(chart, use_container_width=True)
-
-
-# Create a stacked bar chart using the pivoted DataFrame
-fig, pivoted = plt.subplots()
-pivoted.plot(kind='bar', stacked=True, figsize=(15,6))
-
-plt.ylabel('Count')
-plt.xlabel('')
-# Move the legend outside the figure
-plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
-
-st.pyplot(fig)
 
 
 # group the dataframe by year and normalize the count column

@@ -55,8 +55,9 @@ df['Tempo'] = pd.cut(df['tempo'], bins=tempo_bins, labels=labels)
 
 metrics = ["key", "Tempo" ] #, "danceability","speechiness","instrumentalness", "liveness","valence"]
 
-selected_metric = st.selectbox('Select a metric:', metrics)
+selected_metric = st.radio('Select a metric:', metrics)
 
+#selectbox
 
 # Group the DataFrame by 'Name' and 'Year' and count the occurrences
 counts = df.groupby([selected_metric, 'year']).size().reset_index(name='Count')

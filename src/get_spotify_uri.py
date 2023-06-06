@@ -5,8 +5,8 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import os
 
 # Set the required environment variables for Spotify API authentication
-os.environ["SPOTIPY_CLIENT_ID"] = "54b3ffcb9b85494aa3ca79a540013c94"
-os.environ["SPOTIPY_CLIENT_SECRET"] = "68d913a2f09f4086ab7ab1244816d99b"
+os.environ["SPOTIPY_CLIENT_ID"] = "..."
+os.environ["SPOTIPY_CLIENT_SECRET"] = "..."
 os.environ["SPOTIPY_REDIRECT_URI"] = "http://localhost:8080"
 
 # Initialize the Spotify API client

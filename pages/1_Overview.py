@@ -2,17 +2,11 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 
-
-
-
 path = "./data/merged_df.pkl"
 
 path_local = r"C:\Users\paulh\Desktop\Spotify\data\merged_df.pkl"
 
 df = pd.read_pickle(path)
-
-
-
 
 st.write("### Welcome to the Billboard analyser")
 st.markdown("""---""")
@@ -34,10 +28,6 @@ INSTRUMENTALNESS = '"Predicts whether a track contains no vocals. "Ooh" and "aah
 LIVENESS = '"Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 0.8 provides strong likelihood that the track is live (Spotify API)."'
 
 VALENCE = '"A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry)(Spotify API)."'
-
-
-
-
 
 st.write(f"#### Number of songs: {NUMBER_OF_ENTRIES}")
 st.write(f"#### From {FIRST_YEAR} to {LAST_YEAR}")
@@ -94,10 +84,7 @@ chart = alt.Chart(df).mark_bar().encode(
     alt.Y('count()', title='Frequency')
 ).interactive()
 
-
 st.altair_chart(chart, use_container_width=True)
-
-
 
 metrics = ["danceability","speechiness","instrumentalness",
            "liveness","valence"]
@@ -106,7 +93,6 @@ metrics_name = ["Danceability","Speechiness","Instrumentalness",
            "Liveness","Valence"]
 
 info_list = [DANCEABLITY,SPEECHINESS, INSTRUMENTALNESS, LIVENESS, VALENCE]
-
 
 for metric, name, info in zip(metrics,metrics_name,info_list):
     st.write(f"#### {name}")
@@ -118,7 +104,6 @@ for metric, name, info in zip(metrics,metrics_name,info_list):
     ).interactive()
     st.altair_chart(chart, use_container_width=True)
     
-
 st.markdown("""---""")
 st.write(f"#### Duration in minutes")
 
@@ -129,6 +114,3 @@ chart = alt.Chart(df).mark_bar().encode(
     alt.Y('count()', title='Frequency')
 ).interactive()
 st.altair_chart(chart, use_container_width=True)
-
-    
-

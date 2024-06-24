@@ -2,14 +2,15 @@
 #matplotlib==3.7.1
 #numpy==1.24.2
 #scikit-learn==1.2.2
-numpy==1.20.0
-pandas==2.0.0
 streamlit==1.36.0
+numpy==2.0.0
+pandas==2.2.2
 altair==4.2.2
+matplotlib==3.7.1
+folium==0.14.0
+streamlit-folium== 0.11.1
 #fiona==1.9.3
 #pydeck==0.8.0
 #folium==0.14.0
 #streamlit-folium== 0.11.1
-matplotlib==3.7.1
-folium==0.14.0
-streamlit-folium== 0.11.1
+
